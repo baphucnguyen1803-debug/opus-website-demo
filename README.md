@@ -11,14 +11,19 @@ python3 -m http.server 8090
 
 Open [http://localhost:8090/#home](http://localhost:8090/#home). Add `#notes` for presenter notes (e.g. `#notes` or `#home&notes`).
 
-## Repository privacy
+## Share a link (no login)
 
-This project is intended to live in a **private** GitHub repository. Only people you invite can clone or view the code.
+Use **public GitHub Pages** so anyone can open the demo from a URL:
 
-To share the demo with others without making the repo public:
+```bash
+./scripts/publish-public-pages.sh
+```
 
-1. **GitHub:** Settings → Collaborators → add their GitHub accounts.
-2. **Live preview (optional):** Settings → Pages → deploy from `main` / root. On a private repo, the Pages site is only visible to users who have access to the repository.
+Example: `https://<your-github-user>.github.io/opus-website-demo/#home` (presenter notes: `#notes`).
+
+The repository must be **public** for free GitHub Pages to work without sign-in. (A private repo cannot offer anonymous viewing on the free plan.)
+
+For a **private** repo (code hidden), use `./scripts/publish-private-github.sh` and invite collaborators only — they will need a GitHub account to view.
 
 ## Contents
 
