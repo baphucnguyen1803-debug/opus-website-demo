@@ -46,7 +46,8 @@
       ]
     },
     { label: "Sustainability", page: "sustainability-end-of-life" },
-    { label: "Insights", page: "opus-insights" }
+    { label: "Insights", page: "opus-insights" },
+    { label: "Contact", page: "contact", wideOnly: true }
   ];
 
   const HOVER_OPEN_DELAY = 150;
@@ -59,7 +60,7 @@
     return NAV.map(item => {
       if (!item.items) {
         return `
-          <li class="nav-item">
+          <li class="nav-item${item.wideOnly ? " nav-item--wide-only" : ""}">
             <a class="nav-link" href="#${item.page}" data-page="${item.page}" data-page-link="${item.page}">${item.label}</a>
           </li>`;
       }

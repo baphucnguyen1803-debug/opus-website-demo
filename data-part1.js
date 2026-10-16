@@ -8,20 +8,21 @@ window.OPUS_PAGES_PART1 = {
     metaTitle: "Shoe Manufacturer in Vietnam | Opus Footwear 3D Design and Manufacturing",
     metaDescription: "Discover how we help brands move from design and 3D development to scalable footwear manufacturing in Vietnam.",
     hero: {
+      layout: "banner",
       eyebrow: "Footwear manufacturing, done with purpose.",
       eyebrowCase: "sentence",
       note: {
         label: "Hero",
-        component: "C01",
-        purpose: "CEO tagline (confirmed 2 Oct) plus the platform promise",
-        source: "Roy's H1 kept; eyebrow is a proposal"
+        component: "C01 · banner",
+        purpose: "CEO tagline (confirmed 2 Oct) plus the platform promise; full-width video banner on top, copy stacked below",
+        source: "Roy's H1 kept; layout from partner wireframe 1a; video file to come"
       },
       title: "Footwear product creation, 3D innovation, and manufacturing in one connected platform",
       subtitle: "Opus brings together OPUSlab, OPUStudio, and OPUS Manufacturing to guide footwear brands from concept through virtual and technical development to digital assets, marketing content, and Vietnam-based manufacturing.",
       image: "assets/opus-hero-platform.jpg",
       videoBadge: "Introduction Video · Concept to Vietnam Bulk Production",
       primaryCta: { label: "Schedule a Call", target: "contact" },
-      secondaryCta: { label: "Explore Product Creation", target: "product-creation" }
+      secondaryCta: { label: "Explore Product Creation", target: "opus-lab" }
     },
     sections: [
       {
@@ -30,7 +31,7 @@ window.OPUS_PAGES_PART1 = {
           label: "A shoe passes through many hands",
           component: "C02",
           purpose: "open the story with the client's problem",
-          source: "Roy's words from Why Choose Opus, Benefit 01"
+          source: "Roy's words from Why Choose Opus, Benefit 01; kept from our version (not in partner wireframe 1a)"
         },
         tag: "THE PROBLEM WE SOLVE",
         title: "A shoe passes through many hands",
@@ -41,13 +42,15 @@ window.OPUS_PAGES_PART1 = {
         type: "C03-pillar-cards",
         note: {
           label: "Develop, present, and produce…",
-          component: "C03",
-          purpose: "answer the problem with one team, three verbs (not numbered: the work runs in parallel)",
-          source: "Roy's card texts kept"
+          component: "C03 · flow",
+          purpose: "answer the problem with one team, three verbs joined by arrows: one connected system",
+          source: "Roy's card texts kept; arrows and caption from partner wireframe 1a, section 2"
         },
         tag: "PLATFORM OVERVIEW",
         title: "Develop, present, and produce your footwear with one team",
         subtitle: "Three specialized pillars support the work from early concept to market communication and Vietnam-based production.",
+        flow: true,
+        caption: "One connected system, not three unrelated services.",
         pillars: [
           {
             verb: "Develop.",
@@ -77,26 +80,36 @@ window.OPUS_PAGES_PART1 = {
       },
       {
         type: "C04-pillar-feature",
-        variant: "cards",
+        variant: "nested",
+        pillar: "lab",
         note: {
           label: "OPUSlab section",
-          component: "C04",
-          purpose: "show product creation before production; 3D first, physical samples confirm",
-          source: "Content Master v5 + Jiami 9 Oct"
+          component: "C04 · nested",
+          purpose: "show product creation before production; supporting services nested inside the pillar",
+          source: "Content Master v5 + Jiami 9 Oct; nested panel and key points from partner wireframe 1a, section 3"
         },
         tag: "OPUSlab",
         title: "OPUSlab, creating footwear through design, 3D, and technical innovation",
-        subtitle: "OPUSlab brings together design direction, 3D and virtual development, technical interpretation, and physical development to move brand teams from early concept to production-ready footwear with fewer gaps across design, engineering, sampling, and manufacturing.",
-        cards: [
+        body: "OPUSlab brings together design direction, 3D and virtual development, technical interpretation, and physical development to move brand teams from early concept to production-ready footwear with fewer gaps across design, engineering, sampling, and manufacturing.",
+        cta: { label: "Discover OPUSlab", target: "opus-lab" },
+        nestedLabel: "OPUSlab supporting services",
+        nested: [
           {
-            eyebrow: "Design & 3D Development",
+            name: "Design & 3D Development",
             title: "Design and 3D development that keep your brand moving",
             body: "Advanced 3D and virtual development allow teams to assess proportion, construction, materials, colorways, and details before physical sampling. Earlier alignment supports a clearer, faster, and more buildable route into development and production.",
+            bullets: [
+              "Footwear design and development",
+              "Advanced 3D development",
+              "Technical refinement and problem-solving",
+              "Virtual review before physical sampling",
+              "Better alignment across design, development, and production"
+            ],
             image: "assets/opus-lab-3d-cad.jpg",
             cta: { label: "Discover Design & 3D Development", target: "design-3d-development" }
           },
           {
-            eyebrow: "Development Center",
+            name: "Development Center",
             title: "From footwear concept to physical prototypes",
             body: "The Development Center turns concepts into wearable, testable samples, shaping each prototype around fit, comfort, construction, cost, and timing.",
             image: "assets/opus-dev-center.jpg",
@@ -110,14 +123,15 @@ window.OPUS_PAGES_PART1 = {
         note: {
           label: "OPUStudio section",
           component: "C04",
-          purpose: "one 3D base reused for sales and marketing assets",
-          source: "Content Master v5"
+          purpose: "one 3D base reused for sales and marketing assets; subtitle styled as a distinct lead line",
+          source: "Content Master v5; list heading and lead-line styling from partner comments on 1a, section 4"
         },
         tag: "OPUStudio",
         title: "OPUStudio, where footwear becomes digital brand assets",
         subtitle: "3D rendering, animation, videos, and interactive showcases for marketing, sales, e-commerce, and faster market communication.",
         body: "OPUStudio creates photorealistic footwear renders, animation, videos, and interactive digital assets for e-commerce, sales tools, campaigns, and launches, built from the same 3D model used in development. The same shoe can be shown in different colors, materials, lighting conditions, and environments without repeating a full physical shoot.",
         image: "assets/opus-studio-render.jpg",
+        bulletsTitle: "Creative outputs built for launch, sales, and growth:",
         bullets: [
           "Photorealistic footwear renders and color or material updates",
           "Marketing videos and footwear animation",
@@ -129,12 +143,13 @@ window.OPUS_PAGES_PART1 = {
       },
       {
         type: "C04-pillar-feature",
-        variant: "subcards",
+        variant: "nested",
+        pillar: "mfg",
         note: {
           label: "Manufacturing built around the shoe",
-          component: "C04",
-          purpose: "production routed from the product; the Development Center works inside the units",
-          source: "v5 + confirmed 12 Oct; unit count to confirm"
+          component: "C04 · nested",
+          purpose: "production routed from the product; supporting systems nested inside the pillar",
+          source: "v5 + confirmed 12 Oct; unit count to confirm; nested panel from partner wireframe 1a, section 5"
         },
         tag: "OPUS MANUFACTURING",
         title: "Manufacturing built around the shoe",
@@ -142,20 +157,64 @@ window.OPUS_PAGES_PART1 = {
         body: "Footwear becomes stronger when development and manufacturing are built around the same product logic. OPUS Manufacturing supports complex constructions, advanced upper applications, outsole engineering, performance materials, and production oversight so brands can move from development into production with greater confidence. Its network of {{tbc:[number to confirm]}} partner manufacturing units in Vietnam gives each program access to the right category fit, construction capability, and technical manufacturing route without losing centralized control. The OPUSlab Development Center team works inside these units, so the people who made your samples are on site when bulk production begins.",
         image: "assets/opus-factory-vietnam.jpg",
         cta: { label: "Explore Manufacturing", target: "manufacturing" },
-        subFeatures: [
+        nestedLabel: "Manufacturing supporting systems",
+        nested: [
           {
-            eyebrow: "Innovation & Technology",
+            name: "Innovation & Technology",
             title: "Practical innovation for technical footwear development",
+            art: "innovation-technology",
             body: "Across OPUSlab, OPUStudio, and OPUS Manufacturing, Opus applies virtual development, product visualization, advanced compounds, engineered materials, outsole systems, and construction technologies according to the product's category, performance needs, and production route.",
             cta: { label: "Explore Innovation & Technology", target: "innovation-technology" }
           },
           {
-            eyebrow: "Double Guard QMS",
+            name: "Double Guard QMS",
             title: "Quality built into the manufacturing process",
+            art: "double-guard-qms",
             body: "Double Guard QMS adds a second layer of control across OPUS Manufacturing to support consistency, timeline discipline, and production accountability. It identifies issues earlier and keeps production aligned with the approved product standard.",
             cta: { label: "See Double Guard QMS", target: "double-guard-qms" }
           }
         ]
+      },
+      {
+        type: "C09-category-grid",
+        note: {
+          label: "Footwear categories",
+          component: "C09",
+          purpose: "let brands find their category; compact tiles right after Manufacturing",
+          source: "v5; comfort/barefoot proposed; moved to section 6 and redesigned per partner comment on 1a"
+        },
+        tag: "FOOTWEAR CATEGORIES",
+        title: "Footwear built around brand categories",
+        subtitle: "Different categories require different answers in fit, materials, construction, tooling, and production scale.",
+        body: "Opus supports outleisure, athleisure, outdoor, sneakers, performance, casual, children's, and comfort and barefoot footwear with development and manufacturing capabilities shaped around how each shoe needs to perform, fit, and scale.",
+        categories: [
+          { label: "Outleisure", icon: "outleisure" },
+          { label: "Athleisure", icon: "athleisure" },
+          { label: "Outdoor", icon: "outdoor" },
+          { label: "Sneakers", icon: "sneakers" },
+          { label: "Performance", icon: "performance" },
+          { label: "Casual", icon: "casual" },
+          { label: "Children’s Footwear", icon: "children" },
+          { label: "Comfort & Barefoot", icon: "barefoot", tbc: true }
+        ],
+        chipTarget: "footwear-categories",
+        cta: { label: "Explore Footwear Categories", target: "footwear-categories" }
+      },
+      {
+        type: "C06-split-media",
+        mediaSide: "left",
+        note: {
+          label: "Sustainability",
+          component: "C06",
+          purpose: "sustainability as product decisions, not promises",
+          source: "v5; \"& EOL\" dropped from the label per partner comment on 1a"
+        },
+        tag: "SUSTAINABILITY",
+        title: "Sustainability starts before production",
+        subtitle: "Responsible footwear choices begin with materials, product construction, engineering, and manufacturing planning.",
+        body: "Opus builds sustainability thinking into material selection, component compatibility, construction choices, production methods, and end-of-life possibilities. Each choice is considered against the category, performance needs, production route, and product lifecycle.",
+        image: "assets/opus-sustainability.jpg",
+        cta: { label: "Explore Sustainability", target: "sustainability-end-of-life" }
       },
       {
         type: "C05-proof",
@@ -163,7 +222,7 @@ window.OPUS_PAGES_PART1 = {
           label: "Why brands build with Opus",
           component: "C05",
           purpose: "the only proof block on the page",
-          source: "NEW block, all content to confirm"
+          source: "NEW block, all content to confirm; kept from our version (not in partner wireframe 1a)"
         },
         tag: "WHY BRANDS BUILD WITH OPUS",
         title: "Why brands build with Opus",
@@ -186,62 +245,18 @@ window.OPUS_PAGES_PART1 = {
         cta: { label: "See Why Brands Choose Opus", target: "why-choose-opus" }
       },
       {
-        type: "C06-split-media",
-        mediaSide: "right",
-        note: {
-          label: "Footwear categories",
-          component: "C06",
-          purpose: "let brands find their category",
-          source: "v5; comfort/barefoot proposed"
-        },
-        tag: "FOOTWEAR CATEGORIES",
-        title: "Footwear built around brand categories",
-        subtitle: "Different categories require different answers in fit, materials, construction, tooling, and production scale.",
-        body: "Opus supports outleisure, athleisure, outdoor, sneakers, performance, casual, children's, and comfort and barefoot footwear with development and manufacturing capabilities shaped around how each shoe needs to perform, fit, and scale.",
-        image: "assets/opus-categories.jpg",
-        imageAlt: "Footwear Categories",
-        chips: [
-          { label: "Outleisure" },
-          { label: "Athleisure" },
-          { label: "Outdoor" },
-          { label: "Sneakers" },
-          { label: "Performance" },
-          { label: "Casual" },
-          { label: "Children’s Footwear" },
-          { label: "Comfort & Barefoot", tbc: true }
-        ],
-        chipTarget: "footwear-categories",
-        ctaStyle: "primary",
-        cta: { label: "Explore Footwear Categories", target: "footwear-categories" }
-      },
-      {
-        type: "C06-split-media",
-        mediaSide: "left",
-        note: {
-          label: "Sustainability",
-          component: "C06",
-          purpose: "sustainability as product decisions, not promises",
-          source: "v5"
-        },
-        tag: "SUSTAINABILITY & END-OF-LIFE",
-        title: "Sustainability starts before production",
-        subtitle: "Responsible footwear choices begin with materials, product construction, engineering, and manufacturing planning.",
-        body: "Opus builds sustainability thinking into material selection, component compatibility, construction choices, production methods, and end-of-life possibilities. Each choice is considered against the category, performance needs, production route, and product lifecycle.",
-        image: "assets/opus-sustainability.jpg",
-        cta: { label: "Explore Sustainability", target: "sustainability-end-of-life" }
-      },
-      {
         type: "C07-insights-teaser",
+        variant: "editorial",
         note: {
           label: "Opus Insights",
-          component: "C07",
-          purpose: "low-commitment next step (subscribe)",
-          source: "proposal, newsletter tool to confirm"
+          component: "C07 · editorial",
+          purpose: "low-commitment next step: three real articles plus subscribe",
+          source: "articles from the Opus Insights page; editorial cards from partner wireframe 1a, section 8; newsletter tool to confirm"
         },
         tag: "OPUS INSIGHTS",
         title: "Practical footwear insights from concept to production",
         subtitle: "Thinking on product creation, materials, digital development, manufacturing, innovation, quality, and sustainability.",
-        body: "Opus Insights shares product-specific perspectives for teams working across footwear development, sourcing, digital assets, and Vietnam-based manufacturing.",
+        articleIds: ["tech-pack-readiness", "render-vs-photo", "double-guard-qms-guide"],
         primaryCta: { label: "Read Opus Insights", target: "opus-insights" },
         secondaryCta: { label: "Subscribe to Opus Insights", target: "opus-insights" }
       }
@@ -379,117 +394,168 @@ window.OPUS_PAGES_PART1 = {
     metaTitle: "About Opus: Shoemakers Behind Your Shoe | OPUS Manufacturing",
     metaDescription: "Learn how Opus combines product creation, technical know-how, and Vietnam-based manufacturing to support footwear brands.",
     hero: {
+      layout: "banner",
       eyebrow: "ABOUT OPUS",
-      title: "Shoemakers who stay with your shoe, from first sketch to bulk",
-      subtitle: "Opus is built by footwear people working across Europe and Asia, with expertise in product creation, digital assets creation, and Vietnam-based manufacturing. From design thinking in Italy to development and production work in Vietnam, Opus is structured to support footwear brands from early idea to manufacturing execution through OPUSlab, OPUStudio, and OPUS Manufacturing.",
-      image: "assets/opus-hero-platform.jpg",
-      primaryCta: { label: "Schedule a Call", target: "contact" },
-      secondaryCta: { label: "Explore Our Structure", target: "opus-lab" }
+      note: {
+        label: "Hero",
+        component: "C01 · banner",
+        purpose: "who Opus is: product, people, and place",
+        source: "Partner wireframe 2a, section 1; team or studio photography to come"
+      },
+      title: "A footwear partner shaped by product, people, and place",
+      lead: "Opus is a connected footwear platform built around product creation, digital product presentation, and Vietnam-based manufacturing.",
+      paragraphs: [
+        "Opus brings together OPUSlab, OPUStudio, and OPUS Manufacturing to support footwear brands with the work that sits between idea, development, presentation, and production. Our structure reflects how footwear is actually made: through design judgment, technical interpretation, material and construction decisions, manufacturing discipline, and clear coordination between teams. With roots in shoemaking and a working footprint across Europe and Vietnam, Opus has grown into a footwear partner for brands that need product understanding as well as production execution."
+      ],
+      image: "assets/opus-dev-center.jpg"
     },
     sections: [
       {
-        type: "fact-strip",
-        tag: "OPUS AT A GLANCE",
-        stats: [
-          { value: "2016", label: "Founded" },
-          { value: "85+", label: "People across Italy, Vietnam, and international offices" },
-          { value: "8 Units", label: "Partner manufacturing units in Vietnam" },
-          { value: "25+", label: "Countries we ship to" }
-        ]
-      },
-      {
-        type: "story-timeline",
+        type: "C13-text-process",
+        note: {
+          label: "Our story",
+          component: "C13",
+          purpose: "from shoemaking roots to a connected platform, with a three-stage timeline",
+          source: "Partner wireframe 2a, section 2; stages without years (no dates confirmed)"
+        },
         tag: "OUR STORY",
-        title: "Shoemakers first, rooted in craft, driven by innovation, and built to scale.",
+        title: "From shoemaking roots to a broader footwear creation platform",
         paragraphs: [
-          "OPUS began with shoemaking roots, product details, and the practical work needed to turn ideas into real footwear. That foundation continues to shape how OPUS works today.",
-          "Behind Opus is an international team of footwear people with different creative, technical, manufacturing, and commercial backgrounds. They bring experience from Europe and Asia, but what connects them is a shared understanding of how a shoe is designed, presented, and produced.",
-          "As Opus has grown, that knowledge has become more structured. Today, it is organized through OPUSlab, OPUStudio, and OPUS Manufacturing, so product thinking, digital presentation, manufacturing coordination, and quality oversight can stay closer to the product."
+          "Opus began with a focus on shoemaking, product detail, and the practical work needed to turn ideas into real footwear. Over time, that foundation expanded into a broader model covering product creation, technical development, digital presentation, manufacturing coordination, and quality oversight.",
+          "This evolution came from the way footwear brands work today. A product rarely succeeds because of one isolated stage. Design intent, materials, construction, development decisions, sourcing, manufacturing, and presentation all influence the final result.",
+          "Opus has grown around that reality. The company is built to keep those parts closer together, so the product can move from early thinking into physical development, commercial presentation, and manufacturing with fewer gaps between teams and stages."
         ],
-        milestones: [
-          { year: "2016", text: "Opus begins with European footwear design and technical sourcing roots." },
-          { year: "2019", text: "First OPUSlab development team placed directly inside a partner manufacturing unit in South Vietnam." },
-          { year: "2022", text: "Ho Chi Minh City headquarters and 3D development studio established alongside Treviso design hub." },
-          { year: "2025", text: "Integrated OPUSlab, OPUStudio, and OPUS Manufacturing with Double Guard QMS across 8 partner units." }
+        steps: [
+          { label: "Stage 1", text: "Shoemaking roots & product detail" },
+          { label: "Stage 2", text: "Model expands — technical, digital, manufacturing, quality" },
+          { label: "Stage 3", text: "Opus today — parts kept close, fewer gaps" }
         ]
       },
       {
-        type: "people-grid",
-        tag: "THE PEOPLE BEHIND OPUS",
-        title: "The people who work on your shoe",
-        subtitle: "Shoes are made by people with specific skills. These are some of the people you will work with.",
-        people: [
-          { name: "Roy", role: "Founder & Managing Director", exp: "22 years in footwear", location: "Treviso & Ho Chi Minh City", proud: "A technical waterproof trail runner where we solved a complex dual-density bonding challenge in round one." },
-          { name: "David", role: "Head of Product & Development", exp: "18 years in footwear", location: "Ho Chi Minh City", proud: "An outleisure cupsole collection taken from 3D concept to confirmation sample in just two physical rounds." },
-          { name: "Minh Nguyen", role: "Senior Pattern Maker", exp: "16 years in footwear", location: "Binh Duong Development Center", proud: "A multi-layered engineered mesh upper that kept perfect tension across all 12 graded sizes." },
-          { name: "Marco Rossi", role: "Lead Sole Engineer", exp: "14 years in footwear", location: "Treviso / Dong Nai", proud: "A 3D-printed lugged outsole mockup that saved a client €18,000 in premature steel mould modifications." },
-          { name: "Lan Pham", role: "Quality Control Lead (Double Guard QMS)", exp: "15 years in footwear", location: "Dong Nai & Long An Units", proud: "Zero AQL failures across a 45,000-pair European retail launch through inline Double Guard checks." },
-          { name: "Hanh Tran", role: "Sourcing Specialist", exp: "12 years in footwear", location: "Ho Chi Minh City HQ", proud: "Sourcing a REACH-compliant bio-based EVA and recycled ripstop package without increasing target FOB." }
-        ]
+        type: "C03-pillar-cards",
+        variant: "text",
+        note: {
+          label: "What Opus is today",
+          component: "C03 · text",
+          purpose: "the three connected pillars, one line each",
+          source: "Partner wireframe 2a, section 3"
+        },
+        tag: "WHAT OPUS IS TODAY",
+        title: "A connected platform for creation, innovation, and manufacturing footwear",
+        lead: "Today, Opus works through three connected pillars.",
+        pillars: [
+          {
+            pillar: "lab",
+            verb: "Develop",
+            name: "OPUSlab",
+            desc: "The product creation and technical development hub. Supports the work that happens before manufacturing, including design direction, 3D development, virtual development, prototyping, technical interpretation, outsole mould and tooling engineering, and manufacturing readiness.",
+            target: "opus-lab"
+          },
+          {
+            pillar: "studio",
+            verb: "Present",
+            name: "OPUStudio",
+            desc: "The digital product presentation studio. Creates realistic renders, footwear animation, e-commerce visuals, sales tools, launch assets, and product storytelling materials that help teams present products clearly and consistently.",
+            target: "footwear-3d-studio"
+          },
+          {
+            pillar: "mfg",
+            verb: "Produce",
+            name: "OPUS Manufacturing",
+            desc: "The Vietnam-based production and execution platform. Connects product understanding with manufacturing planning, sourcing coordination, quality control, production oversight, and category-specific execution.",
+            target: "manufacturing"
+          }
+        ],
+        caption: "Together, these pillars allow Opus to support footwear brands across the stages where product decisions, visual communication, and manufacturing execution need to stay aligned."
       },
       {
-        type: "locations-grid",
-        tag: "WHERE OPUS OPERATES",
-        title: "Italy and Vietnam working at the center of the OPUS structure",
-        subtitle: "Opus works through a focused international structure. Italy and Vietnam sit at the center of the company’s product and manufacturing model, while the international structure supports footwear brands’ business operations.",
+        type: "C14-footprint",
+        note: {
+          label: "Our footprint",
+          component: "C14",
+          purpose: "each location supports a different part of the work; click a country to highlight it on the map",
+          source: "Partner wireframe 2a, section 4; Vietnam province names to confirm"
+        },
+        tag: "OUR FOOTPRINT",
+        title: "Europe, Italy, and Vietnam working as one footwear structure",
+        lead: "Opus operates across Europe and Vietnam, with each location supporting a different part of the company's work.",
+        paragraphs: [
+          "This footprint is not only geographical. It shapes how Opus thinks, communicates, develops, and manufactures footwear."
+        ],
         locations: [
           {
-            place: "Italy (Treviso)",
-            headline: "Design thinking in footwear",
-            body: "In Treviso, Italy, OPUSlab transforms inspiration from leading design shows, emerging materials, innovation, and evolving trends into distinctive footwear ideas and informed product choices for our clients’ brands. Set within Italy’s strong design culture, OPUSlab gives a clear product identity at the beginning of the process—clarifying purpose, research, construction, material, and commercial characteristics."
+            country: "Italy",
+            headline: "Design thinking rooted in footwear sensibility",
+            body: "In Treviso, Italy, OPUSlab includes the design studio where early product thinking begins — proportion, aesthetics, category language, and brand direction before technical development. Italy gives Opus a strong product sensibility at the beginning of the process; good design thinking helps clarify purpose, construction direction, material expression, and commercial character.",
+            pins: [{ name: "Treviso", lon: 12.24, lat: 45.67, labelDx: 10, labelDy: 16 }]
           },
           {
-            place: "Vietnam (Ho Chi Minh City & South Vietnam)",
-            headline: "Where design moves into physical development and production",
-            body: "Vietnam is the operational heart of OPUS. From our headquarters and 3D development studio in Ho Chi Minh City, OPUS teams carry footwear from virtual creation into physical development and production across 8 partner manufacturing units in South Vietnam. The OPUSlab Development Center team works inside these units, so the people who made your samples are on site when bulk production begins."
+            country: "The Netherlands",
+            headline: "European coordination for international brand teams",
+            body: "Opus has a sales and management office in Amsterdam, supporting client communication, commercial coordination, and strategic management — a clear point of contact in Europe while keeping the work connected to Opus's development and manufacturing base in Vietnam.",
+            pins: [{ name: "Amsterdam", lon: 4.9, lat: 52.37, labelDx: 10, labelDy: -6 }]
           },
           {
-            place: "International Presence",
-            headline: "Supporting the operations of international brands",
-            body: "Opus also supports international brand relationships through coordinated operations in China, Singapore, and the Netherlands. These locations help support business development, communication, commercial coordination, and practical needs across global markets."
+            country: "Vietnam",
+            active: true,
+            hub: true,
+            headline: "Development, coordination, and manufacturing depth",
+            body: "Vietnam is the operational heart of Opus. The company's headquarters and 3D development studio are based in Ho Chi Minh City, close to the manufacturing environment where many product decisions are carried into execution. Opus also works across manufacturing units in {{tbc:Binh Duong, Dong Nai, and Long An}}, allowing different product categories and technical requirements to be matched with suitable production environments. This Vietnam-based structure gives Opus development proximity, production visibility, sourcing coordination, and manufacturing discipline in one operating base.",
+            pins: [{ name: "Ho Chi Minh City", lon: 106.7, lat: 10.8, labelDx: -12, labelDy: 22, labelAnchor: "end" }]
           }
         ]
       },
       {
-        type: "compact-pillars-strip",
-        tag: "HOW OPUS IS STRUCTURED TODAY",
-        title: "Three pillars, a connected platform for footwear creation and manufacturing",
-        subtitle: "Not every brand enters the OPUS structure at the same stage. OPUS brings the right people and capabilities around the product at the right time:",
-        items: [
-          { verb: "Develop", name: "OPUSlab", desc: "Design, 3D, and physical development, from first sketch to a shoe ready to make.", cta: { label: "Explore OPUSlab", target: "opus-lab" } },
-          { verb: "Present", name: "OPUStudio", desc: "Renders, animation, and e-commerce visuals built from the same 3D model.", cta: { label: "Explore OPUStudio", target: "footwear-3d-studio" } },
-          { verb: "Produce", name: "OPUS Manufacturing", desc: "Vietnam-based production, sourcing coordination, and Double Guard QMS quality control.", cta: { label: "Explore OPUS Manufacturing", target: "manufacturing" } }
-        ]
-      },
-      {
-        type: "steps-grid",
+        type: "C13-text-process",
+        note: {
+          label: "How we work with brands",
+          component: "C13",
+          purpose: "collaborative but not vague, condensed into four steps",
+          source: "Partner wireframe 2a, section 5"
+        },
         tag: "HOW WE WORK WITH BRANDS",
-        title: "A working model shaped around your product stage and brand needs",
-        subtitle: "Every footwear project starts from a different point—early idea, sketch, CAD, 3D model, physical sample, carryover style, digital asset need, outsole challenge, or product ready for manufacturing.",
+        title: "Practical collaboration from early thinking to execution",
+        lead: "Opus works with brands through clear communication, structured development, and product-focused decision-making.",
+        paragraphs: [
+          "The work often begins with understanding the product: the category, intended consumer, design direction, construction logic, material needs, development stage, commercial objective, and manufacturing route. From there, Opus helps align the right capabilities around the product, whether the need is early product creation, digital development, presentation assets, technical development, or production execution.",
+          "This way of working is collaborative, but it is not vague. Opus supports brands by helping clarify options, manage development information, coordinate technical input, and keep the product connected to manufacturing reality.",
+          "Strong footwear development depends on many small decisions being handled correctly. Opus is built to make those decisions more visible, more structured, and easier to carry through the process."
+        ],
         steps: [
-          { step: "1. Understand the product stage", desc: "We start by understanding the category, current development stage, available materials, technical questions, commercial needs, and target timeline." },
-          { step: "2. Bring the right people together", desc: "Depending on the need, Opus can involve product creation, design, 3D, digital presentation, development, outsole engineering, sourcing, manufacturing, quality, or client coordination teams." },
-          { step: "3. Define the next route", desc: "The next step may be product creation, 3D development, virtual development, physical sampling, digital product presentation, outsole engineering, manufacturing preparation, or production execution." },
-          { step: "4. Carry the work forward", desc: "As the project develops, Opus keeps product information, technical input, digital assets, sourcing needs, quality expectations, and manufacturing reality connected around the product." }
+          { label: "01", text: "Understand the product" },
+          { label: "02", text: "Align the right capabilities" },
+          { label: "03", text: "Clarify options, coordinate input" },
+          { label: "04", text: "Keep connected to manufacturing reality" }
         ]
       },
       {
-        type: "verifiable-work",
-        tag: "WORK YOU CAN CHECK",
-        title: "Claims are easy to make. Here is what you can check.",
-        items: [
-          "<strong>Client Program Reference:</strong> European Outleisure Brand — Developed technical outleisure line from 3D CAD to bulk in 2 sample rounds.",
-          "<strong>Certifications & Audit Reports:</strong> Shared on request for the specific facilities in your program.",
-          "<strong>Physical & Chemical Test Reports:</strong> Test reports for your shoe from accredited international testing labs.",
-          "<strong>On-Site Factory Visits:</strong> Visit the manufacturing units in South Vietnam where your shoe is developed and made."
+        type: "C11-statement-band",
+        note: {
+          label: "Why the structure matters",
+          component: "C11",
+          purpose: "the belief behind the model",
+          source: "Partner wireframe 2a, section 6 (partner suggests trimming)"
+        },
+        tag: "WHY THE STRUCTURE MATTERS",
+        title: "Product sensibility connected to manufacturing execution",
+        lead: "The Opus model is built around a simple belief: footwear works best when product thinking and manufacturing execution are not separated too early.",
+        paragraphs: [
+          "A shoe may begin with a sketch, a reference, a CAD, a 3D model, or an existing physical style. But it becomes successful through the way every later decision is handled: last shape, pattern logic, materials, components, outsole engineering, sample stages, visual presentation, sourcing, quality control, and production planning.",
+          "By connecting European product sensibility, Italy-based design thinking, Vietnam-based development and manufacturing, and international coordination, Opus gives brands a structure where those decisions can be managed with more context.",
+          "The result is not a generic service process. It is a footwear-specific way of working, shaped around how products are created, presented, and manufactured in real conditions."
         ]
       }
     ],
     closingCta: {
+      note: {
+        label: "Closing CTA",
+        component: "C08",
+        purpose: "qualified inquiry",
+        source: "Partner wireframe 2a, section 7"
+      },
       tag: "NEXT STEP",
-      title: "Where is your footwear project now?",
-      subtitle: "Identify the right next step across OPUS",
-      body: "Whether you are starting with an early idea, refining a design direction, developing a 3D model, reviewing samples, preparing digital assets, engineering an outsole, or planning production in Vietnam, Opus can help identify the right next step.",
+      title: "Tell us what you are building",
+      body: "Share your category, development stage, target timeline, production goals, and the type of support you need. Opus will help assess the most relevant path across product creation, digital presentation, development, and Vietnam-based manufacturing.",
       primaryCta: { label: "Schedule a Call", target: "contact" },
       secondaryCta: { label: "Contact Opus", target: "contact" }
     }
@@ -504,90 +570,180 @@ window.OPUS_PAGES_PART1 = {
     metaDescription: "Discover how Opus turns concepts into manufacturable, commercial-ready footwear through design, development, and technical support.",
     journeyActive: "Develop",
     hero: {
-      eyebrow: "OPUSlab · DEVELOP WITH PURPOSE",
-      title: "Footwear design and development, from first sketch to a shoe that is ready to make",
-      subtitle: "OPUSlab puts development right on the factory in Vietnam, keeping one dedicated team by your side from the first proto all the way to bulk production. You get the pattern makers, sole engineers, developers, and sourcing specialists of a full development team, without building one.",
+      layout: "banner",
+      eyebrow: "OPUSLAB",
+      note: {
+        label: "Hero",
+        component: "C01 · banner",
+        purpose: "what OPUSlab is and why it matters before manufacturing",
+        source: "OPUSlab partner wireframe, section 1"
+      },
+      title: "Footwear creation and technical development before manufacturing and scale",
+      lead: "OPUSlab is where footwear ideas become clearer, more buildable, and better prepared for production.",
+      paragraphs: [
+        "OPUSlab brings together product creation, design direction, 3D development, virtual workflows, physical development, sampling, outsole engineering, and manufacturing readiness.",
+        "The focus is simple: shape the product earlier, solve technical questions sooner, and create a clearer route from concept to production."
+      ],
       image: "assets/opus-lab-3d-cad.jpg",
-      primaryCta: { label: "Talk to OPUSlab", target: "contact" },
-      secondaryCta: { label: "Explore Product Creation", target: "product-creation" }
+      primaryCta: { label: "Talk to OPUSlab", target: "contact" }
     },
     sections: [
       {
-        type: "narrative-grid",
-        tag: "EARLY TECHNICAL ALIGNMENT",
+        type: "C10-capability-split",
+        mediaSide: "right",
+        art: "product-creation",
+        pillar: "lab",
+        note: {
+          label: "Product Creation",
+          component: "C10",
+          purpose: "product decisions come before production",
+          source: "OPUSlab partner wireframe, section 2; animated sketch until a real visual is chosen"
+        },
+        tag: "PRODUCT CREATION",
         title: "Product creation starts before production",
-        lead: "A shoe is not ready for manufacturing just because the concept looks strong. Before production begins, the product needs to be reviewed through fit, last shape, pattern logic, construction, materials, outsole direction, sample stages, and manufacturing conditions.",
-        cards: [
-          {
-            title: "Why Brands Choose OPUSlab as Their Trustworthy Partner?",
-            body: "Most footwear brands don't maintain in-house development teams anymore, and too many suppliers work in silos—one does the upper, another the outsole, a third the assembly. That handoff is where timelines break: a misread pattern, a missing component, or a tooling revision after the mould has already opened. OPUSlab keeps the entire process with one team from day one."
-          },
-          {
-            title: "Everything moves at once, around one shoe",
-            body: "Product creation, 3D design, patterns and samples, and outsole engineering run in parallel, not one after another. Virtual Development keeps them connected: one editable virtual style that the whole team works from."
-          }
+        lead: "A shoe is not ready for manufacturing just because the concept looks strong.",
+        paragraphs: [
+          "Before production begins, the product needs to be reviewed through fit, last shape, pattern logic, construction, materials, outsole direction, sample stages, and manufacturing conditions.",
+          "OPUSlab brings these decisions into the process earlier, so product teams can move from creative concepts to a more practical development path."
+        ],
+        callout: {
+          title: "What OPUSlab covers in product creation",
+          paragraphs: [
+            "Early product creation defines the direction of the shoe before technical development goes too far.",
+            "This includes design direction, category logic, material thinking, construction planning, product architecture, and the development route needed to turn a creative concept into a real footwear program."
+          ]
+        },
+        cta: { label: "Explore Product Creation", target: "product-creation" }
+      },
+      {
+        type: "C10-capability-split",
+        mediaSide: "left",
+        art: "design-3d-development",
+        pillar: "lab",
+        note: {
+          label: "Design & 3D Development",
+          component: "C10",
+          purpose: "review the shoe in 3D before physical sampling",
+          source: "OPUSlab partner wireframe, section 3; heading flagged by the partner for revision"
+        },
+        tag: "DESIGN & 3D DEVELOPMENT",
+        title: "Reviewing footwear before physical sampling",
+        paragraphs: [
+          "Design & 3D Development helps teams review footwear earlier through CAD, 3D models, last-based proportion review, material exploration, and editable digital product data.",
+          "It gives teams a clearer way to evaluate shape, details, construction direction, and product updates before relying only on physical sample rounds."
+        ],
+        cta: { label: "Explore Design & 3D Development", target: "design-3d-development" }
+      },
+      {
+        type: "C10-capability-split",
+        mediaSide: "right",
+        art: "virtual-development",
+        pillar: "lab",
+        note: {
+          label: "Virtual Development",
+          component: "C10",
+          purpose: "one editable digital style for new and existing shoes",
+          source: "OPUSlab partner wireframe, section 4; heading flagged by the partner for revision"
+        },
+        tag: "VIRTUAL DEVELOPMENT",
+        title: "Digital workflows for new and existing styles",
+        paragraphs: [
+          "Virtual Development supports digital footwear workflows for both new and existing styles.",
+          "This can include physical-to-digital conversion, reusable 3D style libraries, material and color updates, and virtual assets that help product teams review, update, and manage styles more efficiently across seasons."
+        ],
+        cta: { label: "Explore Virtual Development", target: "virtual-development" }
+      },
+      {
+        type: "C10-capability-split",
+        mediaSide: "left",
+        image: "assets/opus-dev-center.jpg",
+        imageAlt: "Development Center sample room",
+        note: {
+          label: "Development Center",
+          component: "C10",
+          purpose: "where the shoe becomes physical",
+          source: "OPUSlab partner wireframe, section 5; heading flagged by the partner for revision"
+        },
+        tag: "DEVELOPMENT CENTER",
+        title: "Where footwear becomes physical",
+        paragraphs: [
+          "The Development Center is where footwear becomes physical.",
+          "It develops last, pattern, construction, materials, development tooling, sampling stages, fitting, testing, line review, and manufacturing readiness. This is where product ideas are tested through real shoemaking processes and refined into footwear that can move toward production."
+        ],
+        cta: { label: "Explore the Development Center", target: "development-center" }
+      },
+      {
+        type: "C10-capability-split",
+        mediaSide: "right",
+        image: "assets/opus-outsole-tooling.jpg",
+        imageAlt: "Outsole mould and tooling engineering",
+        note: {
+          label: "Outsole Mould & Tooling Engineering",
+          component: "C10",
+          purpose: "review the bottom unit before mould investment",
+          source: "OPUSlab partner wireframe, section 6"
+        },
+        tag: "OUTSOLE MOULD & TOOLING ENGINEERING",
+        title: "Engineering the bottom unit of the shoe",
+        paragraphs: [
+          "Outsole Mould and Tooling Engineering focus on the bottom unit of the shoe.",
+          "OPUSlab supports outsole design, 3D development, blueprinting, mockups, compound and process alignment, mould development, and sole engineering. This helps brands review outsole concepts before mould investment and prepare bottom units for real product, wear, and manufacturing conditions."
+        ],
+        cta: { label: "Explore Outsole Engineering", target: "outsole-mould-tooling-engineering" }
+      },
+      {
+        type: "C11-statement-band",
+        note: {
+          label: "Digital tools grounded in shoemaking",
+          component: "C11",
+          purpose: "transition: what makes OPUSlab different from a standalone 3D service",
+          source: "OPUSlab partner wireframe, section 7"
+        },
+        tag: "DIGITAL TOOLS GROUNDED IN SHOEMAKING",
+        title: "3D and virtual development are most useful when they are connected to real footwear knowledge.",
+        paragraphs: [
+          "OPUSlab uses digital workflows to improve product review, communication, and development visibility. But the work remains connected to patterns, samples, materials, tooling, fitting, and manufacturing readiness.",
+          "That is what makes OPUSlab different from a general design studio or standalone 3D service — the digital work supports the product development process, not only the visual result."
         ]
       },
       {
-        type: "subpillar-cards",
-        tag: "OPUSlab CAPABILITIES",
-        title: "Five connected capabilities inside OPUSlab",
-        subtitle: "Explore each specialized stage of the OPUSlab product creation and engineering workflow:",
+        type: "C12-ecosystem-cards",
+        note: {
+          label: "Connected to the Opus ecosystem",
+          component: "C12",
+          purpose: "what happens after OPUSlab: OPUStudio and OPUS Manufacturing",
+          source: "OPUSlab partner wireframe, section 8"
+        },
+        tag: "CONNECTED TO THE OPUS ECOSYSTEM",
+        title: "OPUSlab is part of a wider platform, supporting brand needs before, during, and after product development",
         cards: [
           {
-            eyebrow: "Stage 01 · Product Direction",
-            title: "Product Creation",
-            desc: "Early product creation defines the direction of the shoe before technical development goes too far—including design direction, category logic, material thinking, construction planning, product architecture, and target price alignment.",
-            cta: { label: "Explore Product Creation", target: "product-creation" }
+            title: "OPUStudio",
+            body: "After a new product is created, OPUStudio can develop digital asset creation for faster market communication through realistic renders, animations, e-commerce visuals, launch assets, and sales tools.",
+            image: "assets/opus-studio-render.jpg",
+            cta: { label: "Explore OPUStudio", target: "footwear-3d-studio" }
           },
           {
-            eyebrow: "Stage 02 · CAD & 3D",
-            title: "Design & 3D Development",
-            desc: "Helps teams review footwear earlier through CAD, 3D models, last-based proportion review, material exploration, and editable digital product data before relying only on physical sample rounds.",
-            cta: { label: "Explore Design & 3D Development", target: "design-3d-development" }
-          },
-          {
-            eyebrow: "Stage 03 · Digital Library",
-            title: "Virtual Development",
-            desc: "Every change in design, materials, and colorways is kept in one editable virtual style, so the team works from the same version, and next season starts from it. Existing shoes join through physical-to-digital conversion.",
-            cta: { label: "Explore Virtual Development", target: "virtual-development" }
-          },
-          {
-            eyebrow: "Stage 04 · Physical Prototyping",
-            title: "Development Center",
-            desc: "Where footwear becomes physical—developing last, pattern, construction, materials, development tooling, sampling stages (Proto 1 to Confirmation Sample), fitting, testing, and manufacturing readiness inside our Vietnam units.",
-            cta: { label: "Explore the Development Center", target: "development-center" }
-          },
-          {
-            eyebrow: "Stage 05 · Bottom-Unit Engineering",
-            title: "Outsole Mould & Tooling Engineering",
-            desc: "A production mould is a significant investment. Outsole Mould & Tooling Engineering checks the bottom unit as a 3D-printed or PU mockup first, supporting 3D blueprint refinement, compound alignment, and sole engineering.",
-            cta: { label: "Explore Outsole Engineering", target: "outsole-mould-tooling-engineering" }
+            title: "OPUS Manufacturing",
+            body: "When the product is ready for production, OPUS Manufacturing takes over the development work to Vietnam-based manufacturing, sourcing coordination, production oversight, and quality control.",
+            image: "assets/opus-factory-vietnam.jpg",
+            cta: { label: "Explore Manufacturing", target: "manufacturing" }
           }
-        ]
-      },
-      {
-        type: "highlight-split",
-        tag: "DIGITAL + PHYSICAL SYNERGY",
-        title: "3D shows the shoe. Samples prove it.",
-        leftTitle: "3D Virtual Exploration",
-        leftBody: "We use 3D to explore options fast: another colorway, a new material placement, a refined toe shape, without making a new pair each time.",
-        rightTitle: "Physical Sample Proof",
-        rightBody: "We use physical samples to confirm what matters on the foot: fit, comfort, materials, and how the shoe is built. Knowing which question belongs to which tool saves rounds, time, and cost. That is the difference between OPUSlab and a standalone 3D service.",
-        image: "assets/opus-dev-center.jpg"
-      },
-      {
-        type: "what-carries-forward",
-        tag: "PLATFORM CONTINUITY",
-        title: "What carries forward into OPUStudio & OPUS Manufacturing",
-        body: "OPUSlab is part of the wider Opus platform. Once a shoe is developed, the same 3D model moves into OPUStudio for realistic renders, animations, e-commerce visuals, launch assets, and sales tools. Developing inside our manufacturing units means zero data loss: every shoe scales into OPUS Manufacturing with its entire history preserved—lasts, pattern files, sampling milestones, and test reports."
+        ],
+        caption: "Together, the three pillars support footwear from product creation to digital assets and manufacturing execution."
       }
     ],
     closingCta: {
+      note: {
+        label: "Closing CTA",
+        component: "C08",
+        purpose: "qualified OPUSlab inquiry",
+        source: "OPUSlab partner wireframe, section 9"
+      },
       tag: "TALK TO OPUSlab",
       title: "Talk to OPUSlab",
-      subtitle: "Wherever your shoe starts, we’ll map the next step",
-      body: "Whether you have a rough sketch, a CAD file, a 3D render, a physical sample, or a carryover style—bring us where you are, and we’ll define exactly what Round 1 needs to solve.",
+      subtitle: "Tell us about your category, development stage, product goals, timeline, and the type of support you need.",
+      body: "OPUSlab can help identify the right route across product creation, design and 3D development, virtual workflows, physical development, outsole engineering, and manufacturing readiness.",
       primaryCta: { label: "Talk to OPUSlab", target: "contact" },
       secondaryCta: { label: "Contact Opus", target: "contact" }
     }

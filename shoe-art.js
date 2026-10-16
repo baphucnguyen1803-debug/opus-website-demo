@@ -245,5 +245,66 @@
     return `<svg class="shoe-art shoe-art--${pillar}" viewBox="0 0 330 150" preserveAspectRatio="xMidYMid meet" role="presentation" focusable="false">${scene()}</svg>`;
   }
 
-  window.ShoeArt = { render, pillarFor: key => PILLAR[key] || "lab" };
+  const LUGS_D = "M62 125 v5 h12 v-5 M92 125 v5 h12 v-5 M122 125 v5 h12 v-5 M152 125 v5 h12 v-5 M182 125 v5 h12 v-5 M212 125 v5 h12 v-5 M242 125 v5 h12 v-5";
+  const CHUNKY_D = "M36 100 L292 100 C302 100 304 114 298 122 C292 132 278 134 258 134 L58 134 C40 134 32 120 36 100 Z";
+  const RUNNER_D = "M52 106 C50 92 52 78 60 68 C66 61 76 61 86 65 C98 70 108 71 120 69 L136 66 C152 78 172 88 198 94 C228 100 262 99 296 100 C300 102 300 104 298 106 Z";
+  const RUNNER_SOLE_D = "M44 106 L298 106 C306 104 310 98 312 92 C312 108 300 122 276 124 L58 124 C46 124 40 116 44 106 Z";
+  const LOAFER_D = "M46 106 C44 92 48 80 58 76 C78 70 110 74 140 78 C170 82 210 88 250 96 C276 101 290 104 291 106 Z";
+  const FLAT_SOLE_D = "M38 106 L292 106 C297 106 299 110 296 113 C292 117 280 118 262 118 L54 118 C42 118 36 114 38 106 Z";
+  const BAREFOOT_D = "M48 112 C46 94 50 76 58 66 C66 58 78 58 88 62 C100 66 108 68 120 66 L136 64 C150 74 168 84 190 90 C220 96 254 94 278 98 C292 101 296 106 295 112 Z";
+  const THIN_SOLE_D = "M40 112 L294 112 C299 112 300 116 296 118 L50 118 C41 118 38 115 40 112 Z";
+
+  const ICONS = {
+    sneakers: () => sneaker(),
+    outleisure: () => `
+      <path class="sa-sole" d="${SOLE_D}"/>
+      <path class="sa-sole" d="${LUGS_D}"/>
+      <path class="sa-upper" d="${UPPER_D}"/>
+      <path class="sa-stripe" d="M60 102 C120 96 200 98 290 104"/>
+      <path class="sa-line" d="${LACES_D}"/>
+      <path class="sa-line" d="${HEEL_D}"/>`,
+    athleisure: () => `
+      <path class="sa-upper" d="${UPPER_D}" transform="translate(0 -6)"/>
+      <path class="sa-sole" d="${CHUNKY_D}"/>
+      <path class="sa-midline" d="M44 118 C110 112 200 122 296 114"/>
+      <path class="sa-stripe" d="M70 90 C110 80 170 82 230 93"/>
+      <path class="sa-line" d="M136 60 l12 -7 M148 68 l12 -7 M160 75 l12 -7"/>`,
+    outdoor: () => `
+      <path class="sa-sole" d="${SOLE_D}"/>
+      <path class="sa-sole" d="${LUGS_D}"/>
+      <path class="sa-upper" d="${BOOT_D}"/>
+      <path class="sa-line" d="M98 34 l14 -4 M102 44 l14 -4 M108 54 l14 -4 M136 66 l12 -7 M148 74 l12 -7"/>
+      <path class="sa-stripe" d="M60 98 C110 86 170 88 230 99"/>`,
+    performance: () => `
+      <path class="sa-sole" d="${RUNNER_SOLE_D}"/>
+      <path class="sa-midline" d="M46 114 H300"/>
+      <path class="sa-upper" d="${RUNNER_D}"/>
+      <path class="sa-stripe" d="M76 98 C120 84 180 84 250 100"/>
+      <path class="sa-line" d="M140 72 l12 -7 M152 80 l12 -7 M164 86 l12 -7"/>
+      <path class="sa-line" d="M8 70 h22 M2 86 h28 M12 102 h18"/>`,
+    casual: () => `
+      <path class="sa-sole" d="${FLAT_SOLE_D}"/>
+      <path class="sa-upper" d="${LOAFER_D}"/>
+      <path class="sa-line" d="M150 80 C168 74 194 78 206 90"/>
+      <path class="sa-line" d="M122 84 C146 90 172 92 198 96"/>`,
+    children: () => `
+      <g transform="translate(40 26) scale(0.76)">
+        <path class="sa-sole" d="${SOLE_D}"/>
+        <path class="sa-upper" d="${UPPER_D}"/>
+        <path class="sa-stripe" d="M128 64 l22 -12 M142 76 l22 -12"/>
+        <path class="sa-line" d="${HEEL_D}"/>
+      </g>`,
+    barefoot: () => `
+      <path class="sa-sole" d="${THIN_SOLE_D}"/>
+      <path class="sa-upper" d="${BAREFOOT_D}"/>
+      <path class="sa-line" d="M136 70 l12 -7 M148 78 l12 -7 M160 85 l12 -7"/>
+      <path class="sa-line" d="M56 68 C62 80 64 96 62 112"/>`
+  };
+
+  function icon(kind) {
+    const draw = ICONS[kind] || ICONS.sneakers;
+    return `<svg class="shoe-art shoe-icon shoe-art--mfg" viewBox="0 20 330 124" preserveAspectRatio="xMidYMid meet" role="presentation" focusable="false">${shadow(166, 110)}<g class="shoe-icon__shoe">${draw()}</g></svg>`;
+  }
+
+  window.ShoeArt = { render, icon, pillarFor: key => PILLAR[key] || "lab" };
 })();
