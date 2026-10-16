@@ -7,8 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=9">
-  <link rel="stylesheet" href="components.css?v=9">
+  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="components.css?v=12">
+  <link rel="stylesheet" href="shoe-art.css?v=12">
 </head>
 <body>
 
@@ -115,13 +116,21 @@
     <a class="btn btn--primary" href="#contact" data-page="contact">Schedule a Call →</a>
   </div>
 
+  <!-- LAYOUT: classic (multi-page) vs hub (one page per pillar) -->
+  <div class="layout-toggle" role="group" aria-label="Site layout version">
+    <button type="button" class="layout-toggle__btn" data-layout-btn="classic" aria-pressed="true">Multi-page</button>
+    <button type="button" class="layout-toggle__btn" data-layout-btn="hub" aria-pressed="false">Hub pages</button>
+  </div>
+
   <!-- PRESENTATION NOTES TOGGLE -->
   <button type="button" class="notes-toggle" id="notes-toggle" aria-pressed="false">Show notes</button>
 
-  <script src="data-part1.js?v=9"></script>
-  <script src="data-part2.js?v=9"></script>
-  <script src="components.js?v=9"></script>
-  <script src="nav.js?v=9"></script>
-  <script src="app.js?v=9"></script>
+  <script src="data-part1.js?v=12"></script>
+  <script src="data-part2.js?v=12"></script>
+  <script src="components.js?v=12"></script>
+  <script src="shoe-art.js?v=12"></script>
+  <script src="hub-mode.js?v=12"></script>
+  <script src="nav.js?v=12"></script>
+  <script src="app.js?v=12"></script>
 </body>
 </html>

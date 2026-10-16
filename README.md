@@ -11,6 +11,13 @@ python3 -m http.server 8090
 
 Open [http://localhost:8090/#home](http://localhost:8090/#home). Add `#notes` for presenter notes (e.g. `#notes` or `#home&notes`).
 
+### Two layout versions
+
+| Version | URL | Behavior |
+|--------|-----|----------|
+| **Multi-page** (default) | `/#opus-lab` | Overview + separate sub-pages (current sitemap). |
+| **Hub pages** | `?layout=hub#opus-lab` | One long page per pillar: OPUSlab, OPUStudio, and OPUS Manufacturing each include all sub-page content in order. Use the **Multi-page / Hub pages** toggle (bottom-left) or share `?layout=hub` in the link. |
+
 ## Share a link (no login)
 
 Use **public GitHub Pages** so anyone can open the demo from a URL:

@@ -2,7 +2,7 @@
 (function () {
   const PAGES = window.OPUS_PAGES || {};
 
-  const PILLAR_CHILDREN = {
+  const PILLAR_CHILDREN = window.OpusLayout?.PILLAR_CHILDREN || {
     "opus-lab": [
       "product-creation",
       "design-3d-development",
@@ -16,7 +16,7 @@
       "digital-product-assets",
       "interactive-ecommerce-footwear-visuals"
     ],
-    "manufacturing": [
+    manufacturing: [
       "manufacturing-units-in-vietnam",
       "footwear-categories",
       "innovation-technology",
@@ -24,6 +24,8 @@
       "supply-chain-certifications"
     ]
   };
+
+  let pendingHubScroll = null;
 
   let currentPageId = "home";
   let currentInsightFilter = "All Topics";
@@ -49,13 +51,26 @@
     return "#" + pageId + (notes ? "&notes" : "");
   }
 
-  function navigateTo(pageId) {
+  function pathWithHash(hash) {
+    return window.location.pathname + window.location.search + hash;
+  }
+
+  function navigateTo(pageId, { scrollTop = true } = {}) {
     if (!PAGES[pageId]) pageId = "home";
     currentPageId = pageId;
+    pendingHubScroll = null;
+    if (window.OpusLayout?.isHub()) {
+      const parentId = window.OpusLayout.hubParentFor(pageId, PAGES);
+      if (parentId && PAGES[pageId]?.parent) {
+        pendingHubScroll = `hub-chapter-${pageId}`;
+        scrollTop = false;
+      }
+    }
     const nextHash = buildHash(pageId, notesOn);
-    if (window.location.hash !== nextHash) history.pushState(null, "", nextHash);
+    const base = window.location.pathname + window.location.search;
+    if (base + window.location.hash !== base + nextHash) history.pushState(null, "", base + nextHash);
     renderApp();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (scrollTop && !pendingHubScroll) window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   window.navigateTo = navigateTo;
@@ -68,7 +83,7 @@
       toggle.textContent = on ? "Hide notes" : "Show notes";
       toggle.setAttribute("aria-pressed", String(on));
     }
-    if (updateHash) history.replaceState(null, "", buildHash(currentPageId, on));
+    if (updateHash) history.replaceState(null, "", pathWithHash(buildHash(currentPageId, on)));
   }
 
   function syncFromHash() {
@@ -379,7 +394,8 @@
               <p class="section-subtitle">${sec.subtitle}</p>
               <div class="cards-grid-3">
                 ${sec.cards.map(c => `
-                  <div class="feature-card">
+                  <div class="feature-card feature-card--art">
+                    ${window.ShoeArt ? `<div class="feature-card__art feature-card__art--${window.ShoeArt.pillarFor(c.cta.target)}" aria-hidden="true">${window.ShoeArt.render(c.cta.target)}</div>` : ""}
                     <div class="feature-card__content">
                       <span class="section-tag">${c.eyebrow || "Capability"}</span>
                       <h3>${c.title}</h3>
@@ -844,6 +860,16 @@
         `;
       }
 
+      case "hub-chapter-intro":
+        return `
+          <section class="content-section hub-chapter" id="hub-chapter-${sec.id}" data-hub-chapter="${sec.id}">
+            <div class="section-inner">
+              <span class="section-tag">${sec.eyebrow || ""}</span>
+              <h2 class="hub-chapter__title">${sec.chapterTitle || sec.title}</h2>
+              ${sec.subtitle ? `<p class="section-subtitle hub-chapter__subtitle">${sec.subtitle}</p>` : ""}
+            </div>
+          </section>`;
+
       case "contact-inquiry-section":
         return `
           <section class="content-section">
@@ -1002,33 +1028,45 @@
     renderApp();
   };
 
-  function renderSubpageSiblingBar(page) {
-    const parentId = page.parent || (PILLAR_CHILDREN[page.id] ? page.id : null);
+  function renderSubpageSiblingBar(page, hubParent) {
+    const parentId = hubParent || page.parent || (PILLAR_CHILDREN[page.id] ? page.id : null);
     if (!parentId || !PILLAR_CHILDREN[parentId]) return "";
     const parentPage = PAGES[parentId];
     const children = PILLAR_CHILDREN[parentId];
+    const hub = window.OpusLayout?.isHub();
+    const label = hub ? "On this page" : parentPage.title + ":";
+    const overviewLabel = hub ? "Top" : "Overview";
     return `
-      <div class="subpage-bar">
+      <div class="subpage-bar ${hub ? "subpage-bar--hub" : ""}">
         <div class="subpage-bar__inner">
-          <span style="font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;">${parentPage.title}:</span>
-          <button class="subpage-pill ${currentPageId === parentId ? 'active' : ''}" onclick="navigateTo('${parentId}')">Overview</button>
-          ${children.map(cid => {
-            const cp = PAGES[cid];
-            return `<button class="subpage-pill ${currentPageId === cid ? 'active' : ''}" onclick="navigateTo('${cid}')">${cp.title}</button>`;
-          }).join("")}
+          <span class="subpage-bar__label">${label}</span>
+          <button type="button" class="subpage-pill ${currentPageId === parentId ? "active" : ""}" onclick="navigateTo('${parentId}')">${overviewLabel}</button>
+          ${children
+            .map(cid => {
+              const cp = PAGES[cid];
+              return `<button type="button" class="subpage-pill ${currentPageId === cid ? "active" : ""}" onclick="navigateTo('${cid}')">${cp.title}</button>`;
+            })
+            .join("")}
         </div>
       </div>
     `;
   }
 
   function renderApp() {
-    const page = PAGES[currentPageId] || PAGES["home"];
+    const view = window.OpusLayout?.resolveView(currentPageId, PAGES) || {
+      page: PAGES[currentPageId] || PAGES.home,
+      scrollTo: null,
+      hubParent: null
+    };
+    const page = view.page;
+    const hubParent = view.hubParent;
+    if (view.scrollTo) pendingHubScroll = view.scrollTo;
     document.title = page.metaTitle || page.title;
 
     // Highlight active nav links
     document.querySelectorAll("[data-page-link]").forEach(el => {
       const target = el.getAttribute("data-page-link");
-      el.classList.toggle("active", target === currentPageId || target === page.parent);
+      el.classList.toggle("active", target === currentPageId || target === PAGES[currentPageId]?.parent);
     });
 
     // Modular Service Pillars strip if applicable
@@ -1058,7 +1096,7 @@
     ` : "";
 
     const heroHtml = window.OpusComponents.C01Hero(page);
-    const siblingBarHtml = renderSubpageSiblingBar(page);
+    const siblingBarHtml = renderSubpageSiblingBar(page, hubParent);
     const sectionsHtml = (page.sections || []).map(renderSection).join("");
     const closingHtml = window.OpusComponents.C08CtaBand(page.closingCta);
 
@@ -1067,9 +1105,20 @@
       container.innerHTML = journeyHtml + siblingBarHtml + heroHtml + sectionsHtml + closingHtml;
     }
     observeCtaBar();
+
+    if (pendingHubScroll) {
+      const id = pendingHubScroll;
+      pendingHubScroll = null;
+      requestAnimationFrame(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        else window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
   }
 
   window.addEventListener("DOMContentLoaded", function () {
+    window.OpusLayout?.initLayoutToggle(() => renderApp());
     window.OpusNav.init();
 
     const { page, notes } = parseHash();

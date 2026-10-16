@@ -1,0 +1,381 @@
+/* OPUS Website Demo - Animated shoe illustrations on pillar capability cards */
+
+.feature-card__art {
+  position: relative;
+  height: 164px;
+  padding: 10px 12px 4px;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  background-color: #f1eee7;
+  background-image: radial-gradient(rgba(20, 20, 19, 0.07) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+.feature-card__art::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 85%, var(--sa-glow, rgba(200, 75, 49, 0.12)), transparent 65%);
+  pointer-events: none;
+}
+
+.feature-card__art--lab { --sa-tint: var(--lab-color); --sa-glow: rgba(43, 91, 132, 0.14); }
+.feature-card__art--studio { --sa-tint: var(--studio-color); --sa-glow: rgba(124, 58, 237, 0.13); }
+.feature-card__art--mfg { --sa-tint: var(--mfg-color); --sa-glow: rgba(31, 111, 80, 0.14); }
+
+.shoe-art {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.feature-card--art {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.feature-card--art:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+/* Shared shoe parts */
+.shoe-art .sa-upper { fill: #fff; stroke: #141413; stroke-width: 2; stroke-linejoin: round; }
+.shoe-art .sa-sole { fill: #141413; }
+.shoe-art .sa-midline { fill: none; stroke: #f6f4ef; stroke-width: 1.4; opacity: 0.7; }
+.shoe-art .sa-stripe { fill: none; stroke: var(--accent); stroke-width: 3.2; stroke-linecap: round; }
+.shoe-art .sa-line { fill: none; stroke: #141413; stroke-width: 1.8; stroke-linecap: round; }
+.shoe-art .sa-shadow { fill: rgba(20, 20, 19, 0.12); }
+.shoe-art .sa-tread--light { stroke: #f6f4ef; opacity: 0.55; stroke-width: 1.6; }
+
+.shoe-art g,
+.shoe-art path,
+.shoe-art rect,
+.shoe-art circle {
+  transform-box: fill-box;
+}
+
+/* Positioning groups use SVG transform attributes, which must resolve against the canvas origin. */
+.shoe-art g[transform] {
+  transform-box: view-box;
+  transform-origin: 0 0;
+}
+
+/* Product Creation - sketch drawing */
+.shoe-art .sa-grid path { stroke: var(--sa-tint); stroke-width: 0.6; opacity: 0.18; }
+.shoe-art .sa-draw {
+  fill: none;
+  stroke: #141413;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: sa-draw 5s ease-in-out infinite;
+}
+.shoe-art .sa-draw--accent { stroke: var(--accent); stroke-width: 3; }
+.shoe-art .sa-d2 { animation-delay: 0.35s; }
+.shoe-art .sa-d3 { animation-delay: 0.7s; }
+.shoe-art .sa-pencil { animation: sa-pencil 5s ease-in-out infinite; }
+.shoe-art .sa-pencil-body { fill: #f2c94c; stroke: #141413; stroke-width: 1.4; stroke-linejoin: round; }
+.shoe-art .sa-pencil-tip { fill: #141413; }
+
+@keyframes sa-draw {
+  0% { stroke-dashoffset: 1; opacity: 1; }
+  50% { stroke-dashoffset: 0; opacity: 1; }
+  86% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+@keyframes sa-pencil {
+  0% { transform: translate(50px, 104px); }
+  18% { transform: translate(84px, 50px); }
+  34% { transform: translate(176px, 86px); }
+  50% { transform: translate(290px, 106px); }
+  70% { transform: translate(60px, 126px); }
+  100% { transform: translate(50px, 104px); }
+}
+
+/* Design & 3D - mesh + scan */
+.shoe-art .sa-mesh path { fill: none; stroke: var(--sa-tint); stroke-width: 0.8; opacity: 0.55; }
+.shoe-art .sa-scan { fill: var(--accent); opacity: 0.35; animation: sa-scan 3.2s ease-in-out infinite alternate; }
+.shoe-art .sa-cad-corners path { fill: none; stroke: var(--sa-tint); stroke-width: 1.6; opacity: 0.7; }
+
+@keyframes sa-scan {
+  from { transform: translateX(0); }
+  to { transform: translateX(270px); }
+}
+
+/* Virtual Development - colorway cycle */
+.shoe-art .sa-colorway { animation: sa-colorway 6s ease-in-out infinite; }
+.shoe-art .sa-stripe--light { stroke: #f6f4ef; }
+.shoe-art .sa-swatch { stroke: #141413; stroke-width: 1.2; transform-origin: center; animation: sa-swatch 6s ease-in-out infinite; }
+.shoe-art .sa-swatch--2 { animation-delay: 1.5s; }
+.shoe-art .sa-swatch--3 { animation-delay: 3s; }
+.shoe-art .sa-swatch--4 { animation-delay: 4.5s; }
+
+@keyframes sa-colorway {
+  0%, 20% { fill: #ffffff; }
+  25%, 45% { fill: #c84b31; }
+  50%, 70% { fill: #2b5b84; }
+  75%, 95% { fill: #1f6f50; }
+  100% { fill: #ffffff; }
+}
+
+@keyframes sa-swatch {
+  0%, 22% { transform: scale(1.35); stroke-width: 2.4; }
+  27%, 100% { transform: scale(1); stroke-width: 1.2; }
+}
+
+/* Development Center - stitching */
+.shoe-art .sa-stitch {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.8;
+  stroke-dasharray: 5 4;
+  animation: sa-stitch 1.2s linear infinite;
+}
+.shoe-art .sa-needle path { stroke: #57554f; stroke-width: 2; stroke-linecap: round; }
+.shoe-art .sa-needle circle { fill: #57554f; }
+.shoe-art .sa-needle { animation: sa-needle 0.6s ease-in-out infinite alternate; }
+.shoe-art .sa-pattern {
+  fill: rgba(255, 255, 255, 0.7);
+  stroke: var(--sa-tint);
+  stroke-width: 1.4;
+  stroke-dasharray: 4 3;
+  animation: sa-float 3.6s ease-in-out infinite alternate;
+}
+.shoe-art .sa-pattern--2 { animation-delay: -1.8s; }
+
+@keyframes sa-stitch { to { stroke-dashoffset: -18; } }
+@keyframes sa-needle { from { transform: translateY(0); } to { transform: translateY(9px); } }
+
+/* Outsole mould - press */
+.shoe-art .sa-mould { fill: #57554f; }
+.shoe-art .sa-mould-cavity { stroke: #2e2e2b; stroke-width: 3; }
+.shoe-art .sa-ram { stroke: #57554f; stroke-width: 8; }
+.shoe-art .sa-sole-solo { fill: #141413; animation: sa-sole-flash 3.4s ease-in-out infinite; }
+.shoe-art .sa-tread { fill: none; stroke: #f6f4ef; stroke-width: 2; stroke-linecap: round; opacity: 0.6; }
+.shoe-art .sa-press { animation: sa-press 3.4s ease-in-out infinite; }
+
+@keyframes sa-press {
+  0%, 18% { transform: translateY(0); }
+  42%, 58% { transform: translateY(44px); }
+  84%, 100% { transform: translateY(0); }
+}
+
+@keyframes sa-sole-flash {
+  0%, 44% { fill: #141413; }
+  50% { fill: var(--accent); }
+  62%, 100% { fill: #141413; }
+}
+
+/* Rendering - light sweep */
+.shoe-art .sa-softbox { fill: #fff; stroke: var(--sa-tint); stroke-width: 1.4; }
+.shoe-art .sa-rays { stroke: var(--sa-tint); stroke-width: 1; opacity: 0.35; stroke-dasharray: 3 3; }
+.shoe-art .sa-shine { fill: rgba(255, 255, 255, 0.85); animation: sa-shine 3.4s ease-in-out infinite; }
+.shoe-art .sa-spark { fill: var(--accent); transform-origin: center; animation: sa-twinkle 2.4s ease-in-out infinite; }
+.shoe-art .sa-spark--2 { fill: var(--sa-tint); animation-delay: 1.2s; }
+
+@keyframes sa-shine {
+  0% { transform: translateX(20px); }
+  60%, 100% { transform: translateX(380px); }
+}
+
+@keyframes sa-twinkle {
+  0%, 100% { transform: scale(0.4); opacity: 0.2; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Animation & Video - player */
+.shoe-art .sa-frame { fill: rgba(255, 255, 255, 0.55); stroke: #141413; stroke-width: 1.4; }
+.shoe-art .sa-float { transform-origin: center; animation: sa-bob 2.6s ease-in-out infinite alternate; }
+.shoe-art .sa-motion path { stroke: var(--sa-tint); stroke-width: 2.2; stroke-linecap: round; animation: sa-motion 1.3s ease-in-out infinite; }
+.shoe-art .sa-play { fill: var(--accent); }
+.shoe-art .sa-track { fill: rgba(20, 20, 19, 0.15); }
+.shoe-art .sa-progress { fill: var(--accent); transform-origin: left center; animation: sa-progress 5.2s linear infinite; }
+
+@keyframes sa-bob {
+  from { transform: translateY(2px) rotate(0deg); }
+  to { transform: translateY(-6px) rotate(-3deg); }
+}
+
+@keyframes sa-float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-6px); }
+}
+
+@keyframes sa-motion {
+  0%, 100% { opacity: 0.2; transform: translateX(4px); }
+  50% { opacity: 0.9; transform: translateX(-4px); }
+}
+
+@keyframes sa-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Digital Asset Creation - library tiles */
+.shoe-art .sa-tile-bg { fill: #fff; stroke: var(--border); stroke-width: 1.2; }
+.shoe-art .sa-tile { animation: sa-tile 6s ease-in-out infinite; }
+.shoe-art .sa-tile--2 { animation-delay: 0.3s; }
+.shoe-art .sa-tile--3 { animation-delay: 0.6s; }
+.shoe-art .sa-tile--4 { animation-delay: 0.9s; }
+.shoe-art .sa-tile--5 { animation-delay: 1.2s; }
+.shoe-art .sa-tile--6 { animation-delay: 1.5s; }
+
+@keyframes sa-tile {
+  0% { opacity: 0; transform: translateY(8px); }
+  10%, 80% { opacity: 1; transform: translateY(0); }
+  92%, 100% { opacity: 0; transform: translateY(-4px); }
+}
+
+/* Interactive E-commerce - 360 spin */
+.shoe-art .sa-spin { transform-origin: center; animation: sa-spin 4.4s ease-in-out infinite; }
+.shoe-art .sa-orbit { fill: none; stroke: var(--sa-tint); stroke-width: 1.6; stroke-dasharray: 6 5; animation: sa-stitch 1s linear infinite; }
+.shoe-art .sa-orbit-arrow { fill: none; stroke: var(--sa-tint); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.shoe-art .sa-hotspot { fill: var(--accent); stroke: #fff; stroke-width: 2; transform-origin: center; animation: sa-pulse 1.6s ease-in-out infinite; }
+.shoe-art .sa-hotspot--2 { animation-delay: 0.8s; }
+.shoe-art .sa-label { font-family: var(--font-display); font-size: 15px; font-weight: 700; fill: var(--sa-tint); }
+
+@keyframes sa-spin {
+  0%, 12% { transform: scaleX(1); }
+  32% { transform: scaleX(0.12); }
+  50%, 62% { transform: scaleX(-1); }
+  82% { transform: scaleX(0.12); }
+  100% { transform: scaleX(1); }
+}
+
+@keyframes sa-pulse {
+  0%, 100% { transform: scale(0.85); opacity: 0.9; }
+  50% { transform: scale(1.3); opacity: 1; }
+}
+
+/* Manufacturing Units - conveyor */
+.shoe-art .sa-roof { fill: var(--sa-tint); opacity: 0.1; }
+.shoe-art .sa-belt { fill: #2e2e2b; }
+.shoe-art .sa-belt-dash { stroke: #f6f4ef; stroke-width: 1.4; stroke-dasharray: 8 8; opacity: 0.5; animation: sa-belt 0.8s linear infinite; }
+.shoe-art .sa-roller { fill: #8a877f; }
+.shoe-art .sa-convey { animation: sa-convey 7.5s linear infinite; }
+.shoe-art .sa-convey--2 { animation-delay: -2.5s; }
+.shoe-art .sa-convey--3 { animation-delay: -5s; }
+
+@keyframes sa-belt { to { stroke-dashoffset: 16; } }
+
+@keyframes sa-convey {
+  from { transform: translateX(0); }
+  to { transform: translateX(1260px); }
+}
+
+/* Footwear Categories - silhouette cycle */
+.shoe-art .sa-cat { opacity: 0; animation: sa-cat 9s ease-in-out infinite; }
+.shoe-art .sa-cat--2 { animation-delay: 3s; }
+.shoe-art .sa-cat--3 { animation-delay: 6s; }
+.shoe-art .sa-strap { fill: none; stroke: var(--accent); stroke-width: 7; stroke-linecap: round; }
+.shoe-art .sa-dot { fill: rgba(20, 20, 19, 0.2); animation: sa-dot 9s ease-in-out infinite; }
+.shoe-art .sa-dot--2 { animation-delay: 3s; }
+.shoe-art .sa-dot--3 { animation-delay: 6s; }
+
+@keyframes sa-cat {
+  0% { opacity: 0; transform: translateY(6px); }
+  6%, 30% { opacity: 1; transform: translateY(0); }
+  36%, 100% { opacity: 0; transform: translateY(-4px); }
+}
+
+@keyframes sa-dot {
+  0%, 33% { fill: var(--sa-tint); }
+  34%, 100% { fill: rgba(20, 20, 19, 0.2); }
+}
+
+/* Innovation & Technology - exploded layers */
+.shoe-art .sa-foam { fill: #f2e6d8; stroke: #141413; stroke-width: 1.4; animation: sa-foam 3.6s ease-in-out infinite; }
+.shoe-art .sa-layer--upper { animation: sa-explode-up 3.6s ease-in-out infinite; }
+.shoe-art .sa-layer--out { animation: sa-explode-down 3.6s ease-in-out infinite; }
+.shoe-art .sa-leaders { opacity: 0; animation: sa-leaders 3.6s ease-in-out infinite; }
+.shoe-art .sa-leaders path { stroke: var(--sa-tint); stroke-width: 1.2; }
+.shoe-art .sa-leaders circle { fill: var(--sa-tint); }
+
+@keyframes sa-explode-up {
+  0%, 15% { transform: translateY(0); }
+  40%, 65% { transform: translateY(-18px); }
+  90%, 100% { transform: translateY(0); }
+}
+
+@keyframes sa-explode-down {
+  0%, 15% { transform: translateY(0); }
+  40%, 65% { transform: translateY(12px); }
+  90%, 100% { transform: translateY(0); }
+}
+
+@keyframes sa-leaders {
+  0%, 30% { opacity: 0; }
+  42%, 62% { opacity: 1; }
+  75%, 100% { opacity: 0; }
+}
+
+@keyframes sa-foam {
+  0%, 30% { fill: #f2e6d8; }
+  45%, 60% { fill: #f6c9b8; }
+  80%, 100% { fill: #f2e6d8; }
+}
+
+/* Double Guard QMS - inspection + two shields */
+.shoe-art .sa-magnifier circle { fill: rgba(255, 255, 255, 0.45); stroke: var(--sa-tint); stroke-width: 3; }
+.shoe-art .sa-magnifier path { stroke: var(--sa-tint); stroke-width: 5; stroke-linecap: round; }
+.shoe-art .sa-magnifier { animation: sa-inspect 4.8s ease-in-out infinite; }
+.shoe-art .sa-shield path:first-child { fill: var(--sa-tint); }
+.shoe-art .sa-check { fill: none; stroke: #fff; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.shoe-art .sa-shield { transform-origin: center; opacity: 0; animation: sa-shield 4.8s ease-out infinite; }
+.shoe-art .sa-shield--1 { animation-delay: 0.9s; }
+.shoe-art .sa-shield--2 { animation-delay: 2.4s; }
+
+@keyframes sa-inspect {
+  0% { transform: translate(90px, 80px); }
+  50% { transform: translate(236px, 94px); }
+  100% { transform: translate(90px, 80px); }
+}
+
+@keyframes sa-shield {
+  0% { opacity: 0; transform: scale(0.4); }
+  10% { opacity: 1; transform: scale(1.15); }
+  16%, 70% { opacity: 1; transform: scale(1); }
+  85%, 100% { opacity: 0; transform: scale(1); }
+}
+
+/* Supply Chain - flows into the shoe */
+.shoe-art .sa-flow { fill: none; stroke: var(--sa-tint); stroke-width: 1.8; stroke-dasharray: 4 5; animation: sa-flow 1s linear infinite; }
+.shoe-art .sa-node circle:first-child { fill: #fff; stroke: var(--sa-tint); stroke-width: 1.8; }
+.shoe-art .sa-node rect,
+.shoe-art .sa-node .sa-node-inner { fill: var(--accent); stroke: none; }
+.shoe-art .sa-node--4 .sa-node-inner { fill: none; stroke: var(--sa-tint); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.shoe-art .sa-node { transform-origin: center; animation: sa-pulse 2.4s ease-in-out infinite; }
+.shoe-art .sa-node--2 { animation-delay: 0.6s; }
+.shoe-art .sa-node--3 { animation-delay: 1.2s; }
+.shoe-art .sa-node--4 { animation-delay: 1.8s; }
+.shoe-art .sa-hub-shoe { transform-origin: center; animation: sa-bob 2.6s ease-in-out infinite alternate; }
+
+@keyframes sa-flow { to { stroke-dashoffset: -18; } }
+
+@media (max-width: 767.98px) {
+  .feature-card__art {
+    height: 150px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shoe-art *,
+  .feature-card--art {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .shoe-art .sa-draw { stroke-dashoffset: 0; }
+  .shoe-art .sa-cat--1,
+  .shoe-art .sa-shield { opacity: 1; }
+  .shoe-art .sa-pencil { transform: translate(290px, 106px); }
+  .shoe-art .sa-convey--1 { transform: translateX(375px); }
+  .shoe-art .sa-convey--2 { transform: translateX(703px); }
+  .shoe-art .sa-convey--3 { transform: translateX(1031px); }
+}
