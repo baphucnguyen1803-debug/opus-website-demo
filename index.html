@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shoe Manufacturer in Vietnam | Opus Footwear 3D Design and Manufacturing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="components.css?v=9">
+</head>
+<body>
+
+  <!-- MAIN HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand-logo" href="#home" data-page="home">
+        OPUS <span>Footwear Platform</span>
+      </a>
+
+      <!-- Desktop nav + mega-menu, rendered by nav.js -->
+      <nav class="main-nav-wrap" aria-label="Main">
+        <ul class="main-nav" id="main-nav"></ul>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn--primary header-cta" href="#contact" data-page="contact">Schedule a Call</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU (<1024px) -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Main menu" hidden>
+    <div class="mobile-menu__panel">
+      <div class="mobile-menu__head">
+        <a class="brand-logo" href="#home" data-page="home">OPUS <span>Footwear Platform</span></a>
+        <button type="button" class="mobile-menu__close" aria-label="Close menu">✕</button>
+      </div>
+      <nav aria-label="Main mobile">
+        <ul class="mobile-nav" id="mobile-nav"></ul>
+      </nav>
+      <a class="btn btn--primary mobile-menu__cta" href="#contact" data-page="contact">Schedule a Call →</a>
+    </div>
+  </div>
+
+  <!-- DYNAMIC PAGE CONTAINER -->
+  <main id="app-main"></main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" data-theme="dark">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div style="font-family:var(--font-display);font-size:22px;font-weight:700;color:#fff;margin-bottom:10px;">OPUS</div>
+        <p style="margin-bottom:14px;">Footwear product creation, 3D innovation, and Vietnam-based manufacturing in one connected platform.</p>
+        <p style="font-size:12px;color:#78756e;">Treviso, Italy · Ho Chi Minh City, Vietnam · <span class="tbc-inline" tabindex="0" data-tip="To confirm">Binh Duong · Dong Nai · Long An<span class="sr-only"> (to confirm)</span></span> · Netherlands · Singapore · China</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company & Platform</h4>
+        <ul class="footer-links">
+          <li><a href="#home" data-page="home">Home</a></li>
+          <li><a href="#why-choose-opus" data-page="why-choose-opus">Why Choose Opus</a></li>
+          <li><a href="#about-opus-manufacturing" data-page="about-opus-manufacturing">About Opus</a></li>
+          <li><a href="#sustainability-end-of-life" data-page="sustainability-end-of-life">Sustainability & End-of-Life</a></li>
+          <li><a href="#opus-insights" data-page="opus-insights">Opus Insights</a></li>
+          <li><a href="#contact" data-page="contact">Contact / Schedule a Call</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>OPUSlab · Develop</h4>
+        <ul class="footer-links">
+          <li><a href="#opus-lab" data-page="opus-lab">OPUSlab Overview</a></li>
+          <li><a href="#product-creation" data-page="product-creation">Product Creation</a></li>
+          <li><a href="#design-3d-development" data-page="design-3d-development">Design & 3D Development</a></li>
+          <li><a href="#virtual-development" data-page="virtual-development">Virtual Development</a></li>
+          <li><a href="#development-center" data-page="development-center">Development Center</a></li>
+          <li><a href="#outsole-mould-tooling-engineering" data-page="outsole-mould-tooling-engineering">Outsole Mould & Tooling</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>OPUStudio · Present</h4>
+        <ul class="footer-links">
+          <li><a href="#footwear-3d-studio" data-page="footwear-3d-studio">OPUStudio Overview</a></li>
+          <li><a href="#footwear-rendering" data-page="footwear-rendering">3D Rendering</a></li>
+          <li><a href="#footwear-animation-video" data-page="footwear-animation-video">Animation & Video</a></li>
+          <li><a href="#digital-product-assets" data-page="digital-product-assets">Digital Asset Creation</a></li>
+          <li><a href="#interactive-ecommerce-footwear-visuals" data-page="interactive-ecommerce-footwear-visuals">Interactive E-commerce</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>OPUS Manufacturing</h4>
+        <ul class="footer-links">
+          <li><a href="#manufacturing" data-page="manufacturing">Manufacturing Overview</a></li>
+          <li><a href="#manufacturing-units-in-vietnam" data-page="manufacturing-units-in-vietnam">Manufacturing Units in Vietnam</a></li>
+          <li><a href="#footwear-categories" data-page="footwear-categories">Footwear Categories</a></li>
+          <li><a href="#innovation-technology" data-page="innovation-technology">Innovation & Technology</a></li>
+          <li><a href="#double-guard-qms" data-page="double-guard-qms">Double Guard QMS</a></li>
+          <li><a href="#supply-chain-certifications" data-page="supply-chain-certifications">Supply Chain & Certifications</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE STICKY CTA (<768px) -->
+  <div class="mobile-cta-bar" id="mobile-cta-bar">
+    <a class="btn btn--primary" href="#contact" data-page="contact">Schedule a Call →</a>
+  </div>
+
+  <!-- PRESENTATION NOTES TOGGLE -->
+  <button type="button" class="notes-toggle" id="notes-toggle" aria-pressed="false">Show notes</button>
+
+  <script src="data-part1.js?v=9"></script>
+  <script src="data-part2.js?v=9"></script>
+  <script src="components.js?v=9"></script>
+  <script src="nav.js?v=9"></script>
+  <script src="app.js?v=9"></script>
+</body>
+</html>
